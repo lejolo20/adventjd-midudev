@@ -1,6 +1,6 @@
-/* let main = document.getElementById("root"); */
+/* Reto 1 */
 
-function findFirstRepeated(gifts) {
+/* function findFirstRepeated(gifts) {
   // Code here
 
   let arrayWithoutDuplicates = gifts.filter((item, index) => {
@@ -10,4 +10,8 @@ function findFirstRepeated(gifts) {
   return arrayWithoutDuplicates[0];
 }
 
-console.log(findFirstRepeated([1, 2, 3, 4]));
+console.log(findFirstRepeated([1, 2, 3, 4])); */
+
+/* Reto 2 */
+
+
