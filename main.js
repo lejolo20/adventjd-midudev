@@ -1,4 +1,6 @@
-/* Reto 1 */
+/* -------------------------------------------- */
+/* ------------------ Reto 1 ------------------ */
+/* -------------------------------------------- */
 
 /* function findFirstRepeated(gifts) {
   // Code here
@@ -12,10 +14,12 @@
 
 console.log(findFirstRepeated([1, 2, 3, 4])); */
 
-/* Reto 2 */
+/* -------------------------------------------- */
+/* ------------------ Reto 2 ------------------ */
+/* -------------------------------------------- */
 
-function manufacture(gifts, materials) {
-  /* let newArr = gifts.map((item) => {
+/* function manufacture(gifts, materials) {
+   let newArr = gifts.map((item) => {
     const splited = item.split("");
     return splited;
   });
@@ -42,8 +46,9 @@ function manufacture(gifts, materials) {
 
   return responseArr; */
 
-  /* Optimizada con GPT */
-  let responseArr = gifts
+/* Optimizada con GPT */
+
+/* let responseArr = gifts
     .map((item) => {
       const splited = item.split("");
       let individual = splited.map((innerItem) =>
@@ -65,3 +70,64 @@ const gifts = ["libro", "ps5"];
 const materials = "psli";
 
 console.log(manufacture(gifts, materials)); // ["tren", "oso"]
+ */
+
+/* -------------------------------------------- */
+/* ------------------ Reto 3 ------------------ */
+/* -------------------------------------------- */
+
+function findNaughtyStep(original, modified) {
+  /* const originalArr = original.split("");
+  const modifiedArr = modified.split("");
+
+  let difference;
+
+  if (originalArr.length > modifiedArr.length) {
+    difference = originalArr.filter((letter) => !modifiedArr.includes(letter));
+  } else if (originalArr.length < modifiedArr.length) {
+    difference = modifiedArr.filter((letter) => !originalArr.includes(letter));
+  } else {
+    difference = "";
+  }
+  if (difference.length > 0) return difference[0];
+  else return (difference = ""); */
+
+  const originalArr = original.split("");
+  const modifiedArr = modified.split("");
+
+  let difference;
+  let differenceOriginal = originalArr.filter(
+    (letter) => !modifiedArr.includes(letter)
+  );
+  let differenceModified = modifiedArr.filter(
+    (letter) => !originalArr.includes(letter)
+  );
+
+  if (
+    (originalArr.length > modifiedArr.length) &
+    (differenceOriginal.length == 0)
+  ) {
+    difference = originalArr.at(-1);
+  } else if (originalArr.length > modifiedArr.length) {
+    difference = differenceOriginal;
+  } else if (
+    originalArr.length < modifiedArr.length &&
+    differenceModified.length == 0
+  ) {
+    difference = modifiedArr.at(-1);
+  } else if (originalArr.length < modifiedArr.length) {
+    difference = differenceModified;
+  } else {
+    difference = "";
+  }
+
+  if (difference.length > 0) return difference[0];
+  else return (difference = "");
+}
+
+const original = "iiiiiii";
+const modified = "iiiiii";
+
+let res = findNaughtyStep(original, modified);
+
+console.log(res);
