@@ -76,22 +76,7 @@ console.log(manufacture(gifts, materials)); // ["tren", "oso"]
 /* ------------------ Reto 3 ------------------ */
 /* -------------------------------------------- */
 
-function findNaughtyStep(original, modified) {
-  /* const originalArr = original.split("");
-  const modifiedArr = modified.split("");
-
-  let difference;
-
-  if (originalArr.length > modifiedArr.length) {
-    difference = originalArr.filter((letter) => !modifiedArr.includes(letter));
-  } else if (originalArr.length < modifiedArr.length) {
-    difference = modifiedArr.filter((letter) => !originalArr.includes(letter));
-  } else {
-    difference = "";
-  }
-  if (difference.length > 0) return difference[0];
-  else return (difference = ""); */
-
+/* function findNaughtyStep(original, modified) {
   const originalArr = original.split("");
   const modifiedArr = modified.split("");
 
@@ -130,4 +115,36 @@ const modified = "iiiiii";
 
 let res = findNaughtyStep(original, modified);
 
-console.log(res);
+console.log(res); */
+
+/* -------------------------------------------- */
+/* ------------------ Reto 4 ------------------ */
+/* -------------------------------------------- */
+
+function decode(message) {
+  const regex = /\(([^()]+)\)/g;
+
+  let messageArr = message.split(" ");
+  let newMessageArr;
+
+  if (message.match(regex)) {
+    let newMessage = message.match(regex);
+    newMessageArr = newMessage.map((item) => {
+      let itemWithoutParenthesis = item.slice(1, item.length - 1);
+      return itemWithoutParenthesis.split("").reverse().join("");
+    });
+  }
+  console.log(messageArr);
+  console.log(newMessageArr);
+
+  
+}
+
+const a = decode("hola (odnum)");
+console.log(a); // hola mundo
+/* const b = decode("(olleh) (dlrow)!");
+console.log(b); // hello world!
+const c = decode("sa(u(cla)atn)s is ch(am(st)ir)s");
+console.log(c); // santaclaus
+const d = decode("((nta)(sa))");
+console.log(d); // santa */
